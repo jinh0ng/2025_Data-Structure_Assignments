@@ -1,0 +1,32 @@
+Assignment 6. ADT Heap 구현
+마감 6월2일 기준 오후 11:59 배점 10 제출물 유형 파일 업로드
+주어진 소스파일(adt_heap.c)을 완성한다.
+
+- max-heap으로 구현해야 함
+
+- adt_heap.h에 정의해야 할 함수의 원형(prototype)이 선언되어 있으며, adt_heap.c에 함수를 직접 정의해야 함
+
+- 제공된 두 실행 파일(run_int_heap, run_word_heap)과 같이 실행되도록 수정해야 함 (main 함수는 각각 run_int_heap.c와 run_word_heap.c에 있음)
+
+- valgrind를 통해 메모리 누수(memory leak) 현상을 제거해야 함
+
+- 과제 설명에 대한 강의는 "주차학습 -> 11주차"에 있음
+
+- 실행 방법: ./run_int_heap
+
+- 실행 방법: ./run_word_heap 파일명
+          예) ./run_word_heap word_freq_shuffle.txt
+
+- 고려사항
+  * 초기 capacity는 10으로 설정
+  
+  * 삽입시 capacity보다 원소의 수가 많아지려고 할 때, realloc을 해야 함 (메모리를 2배씩 증가하도록 해야 함)
+  
+  * reheapDown 연산에서, 부모(현재 노드)의 키값과 왼쪽 자식과 오른쪽 자식 중 큰 쪽과 비교를 하는데
+  이 때, 왼쪽 자식 >= 오른쪽 자식이면 왼쪽 자식을, 그렇지 않으면 오른쪽 자식을 선택
+  
+  * heap_Delete는 루트의 데이터가 삭제되는데, 실제로는 마지막 원소와 자리를 바꾸고 last를 하나 줄인 후 reheapDown을 수행함 (데이터는 heap_Delete를 호출한 쪽에서 삭제해야 함)
+  
+- 제출 파일: adt_heap.c
+
+- 제출마감: 6월 2일(월) 23:59:00까지
